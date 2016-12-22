@@ -1,0 +1,72 @@
+第一部分 底层网络
+第一章 客户/服务器网络介绍
+1、基于gopher协议的简单socket客户端程序
+2、增加错误修改
+3、增加文件类引用
+4、基本socket服务端程序
+5、高级模块gopherlib实现
+6、更高级模块urllib实现
+
+总结：利用python的socket模块实现编写网络程序
+
+第二章 网络客户端
+1、建立socket（分开两步）
+2、本地寻找端口号
+3、从socket获取自身和远程机器端口号和ip
+4、处理socket异常（处理四种错误）
+5、遗漏的shutdown错误
+6、基本udp客户端（注意tcp和udp客户端建立的区别）
+
+总结：错误检查
+
+第三章 网络服务器
+1、建立服务端（分四步）
+2、服务端错误整理
+3、udp应答服务器
+4、使用inetd和xinetd
+5、inet错误相关（syslog）
+
+总结：熟悉inetd，tcp和udp在服务端变成的区别
+
+第四章 域名系统
+1、反向查询域名
+2、反查数据真实性检查（先反向再正向）
+3、查询环境
+4、使用PyDNS高级查询
+
+总结：使用socket的DNS系统接口，也可以使用第三方模块PyDNS
+
+第五章 高级网络操作
+1、半开放socket，通过socket.shutdown来调用
+2、设置超时时间
+3、传输字符串（网络字节顺序）
+4、使用广播数据（多数用udp）
+5、使用poll（）和select（）
+
+总结：使用半开口检查错误，学会使用select（）
+
+第二部分 Web Service
+
+第六章 Web客户端访问
+1、简单urllib2程序
+2、包含认证的urllib2程序
+3、重新构造get请求
+4、重新构造post请求（URL永远不变）
+5、url程序的错误类型
+6、检查数据错误（是否被删节）
+
+总结：重构get、post方法，注意错误表现
+
+第七章 解析HTML和XHTML
+1、基本html解析（抽取head）
+2、注意实体问题&
+
+总结：处理各种类型的html
+
+第八章 XML和XML-RPC
+1、SGML语言产生XML，python-SAX模块实现基于事件的解析，python-DOM模块实现基于树的解析
+2、使用dom进行完全解析
+3、使用XML-RPC
+
+总结：解析XML文档，产生DOM树，利用XML-RPC
+
