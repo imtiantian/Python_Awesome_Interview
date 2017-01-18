@@ -1,0 +1,5 @@
+20章 forking
+1、zombie进程
+2、使用信号量处理zombie进程
+3、使用轮询（polling）来处理
+4、forKing 服务器

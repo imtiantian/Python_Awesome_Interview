@@ -1,0 +1,72 @@
+
+第三部分 E-mail服务
+第九章 E-mail的编写和编码
+1、编写基本邮件格式
+2、解析邮件
+3、添加MIME附件
+
+第十章 简单邮件传输协议（SMTP）
+1、简单SMTP程序
+2、查看错误和会话跟踪
+3、使用安全socket层（ssl）和安全传输层（tls）
+4、认证
+
+总结：使用smtplib模块来使用SMTP客户端，esmtp是SMTP的扩展
+
+第十一章 pop
+1、建立基本POP程序
+2、使用APOP认证
+3、取得服务器邮箱信息
+4、下载邮件
+
+总结：连接pop时会锁定，调用poplib接口处理上传下载
+
+第十二章 IMAP（未做）
+1、Twisted框架（网络应用程序）
+
+第四部分 多用途的客户端协议
+
+第十三章 FTP
+1、简单FTP程序
+2、使用ASCII模式下载文件
+3、使用二进制模式下载文件
+4、使用高级二进制模式（ntransfercmd函数）下载文件
+5、使用二进制模式上传文件
+6、使用高级二进制模式上传文件（同下载文件）
+7、处理错误（ftplib.all_errors）
+8、扫描目录
+9、解析Unix目录列表
+10、递归下载
+
+总结：ftplib用来和FTP服务器通信，ntransfercmd(),可以用二进制下载文件
+
+第十四章 数据库客户端
+1、基本连接数据库程序
+
+第十五章 SSL
+1、使用SSL降低攻击
+2、简单ssl的socket
+3、使用OpenSSL
+4、验证SSL证书
+
+总结：实现ssl的两种方法：（1）内置SSL（2）使用OpenSSL库
+
+第五部分 服务器端框架
+第十六章 SocketServer
+1、使用BaseHTTPServer框架
+2、动态请求
+3、同时处理多个请求
+4、SimpleHTTPServer程序
+5、CGIHTTPServer程序
+6、自己实现新协议
+
+总结：使用SocketServer框架作为通用网络服务器框架
+
+第十七章 SimpleXMLRPCServer
+1、普通的XML-RPC程序交互
+
+第十八章 CGI
+1、简单cgi脚本
+2、取得Web环境信息
+3、使用cokkie
+
