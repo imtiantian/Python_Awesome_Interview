@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 # Python_Interview
 
@@ -16,6 +15,3 @@
 ###5、公司python面试题及面试题python版本实现
 #希望读者可以留言，一起来补充python版本代码，一起为我们增加代码段
 #即将加入个人认为的python后台开发或者python服务端开发的技术栈，希望大家可以一起来补充
-=======
-# Python_Awesome_Interview
->>>>>>> 7d9506966a0b7d552c239725c288cfee70cc2e26
