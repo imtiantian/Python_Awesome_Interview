@@ -1,7 +1,7 @@
 # -*- coding: cp936 -*-  
 
 import weakref,sys
-weakref.
+
 class TestObj:
     pass
 
