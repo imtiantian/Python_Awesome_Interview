@@ -1,72 +1,115 @@
-µÚÒ»²¿·Ö µ×²ãÍøÂç
-µÚÒ»ÕÂ ¿Í»§/·þÎñÆ÷ÍøÂç½éÉÜ
-1¡¢»ùÓÚgopherÐ­ÒéµÄ¼òµ¥socket¿Í»§¶Ë³ÌÐò
-2¡¢Ôö¼Ó´íÎóÐÞ¸Ä
-3¡¢Ôö¼ÓÎÄ¼þÀàÒýÓÃ
-4¡¢»ù±¾socket·þÎñ¶Ë³ÌÐò
-5¡¢¸ß¼¶Ä£¿égopherlibÊµÏÖ
-6¡¢¸ü¸ß¼¶Ä£¿éurllibÊµÏÖ
+ç¬¬ä¸€éƒ¨åˆ† åº•å±‚ç½‘ç»œ
+ç¬¬ä¸€ç«  å®¢æˆ·/æœåŠ¡å™¨ç½‘ç»œä»‹ç»
+1ã€åŸºäºŽgopheråè®®çš„ç®€å•socketå®¢æˆ·ç«¯ç¨‹åº
+2ã€å¢žåŠ é”™è¯¯ä¿®æ”¹
+3ã€å¢žåŠ æ–‡ä»¶ç±»å¼•ç”¨
+4ã€åŸºæœ¬socketæœåŠ¡ç«¯ç¨‹åº
+5ã€é«˜çº§æ¨¡å—gopherlibå®žçŽ°
+6ã€æ›´é«˜çº§æ¨¡å—urllibå®žçŽ°
 
-×Ü½á£ºÀûÓÃpythonµÄsocketÄ£¿éÊµÏÖ±àÐ´ÍøÂç³ÌÐò
+// Instantiate the RequestQueue.
+val queue = Volley.newRequestQueue(this)
+val url = "https://meme-api.herokuapp.com/gimme"
 
-µÚ¶þÕÂ ÍøÂç¿Í»§¶Ë
-1¡¢½¨Á¢socket£¨·Ö¿ªÁ½²½£©
-2¡¢±¾µØÑ°ÕÒ¶Ë¿ÚºÅ
-3¡¢´Ósocket»ñÈ¡×ÔÉíºÍÔ¶³Ì»úÆ÷¶Ë¿ÚºÅºÍip
-4¡¢´¦ÀísocketÒì³££¨´¦ÀíËÄÖÖ´íÎó£©
-5¡¢ÒÅÂ©µÄshutdown´íÎó
-6¡¢»ù±¾udp¿Í»§¶Ë£¨×¢ÒâtcpºÍudp¿Í»§¶Ë½¨Á¢µÄÇø±ð£©
+// Request a string response from the provided URL.
+val jsonObjectRequest = JsonObjectRequest(
+        Request.Method.GET, url,null,
+        Response.Listener { response ->
+            val url = response.getString("url")
+            Glide.with(this).load(url).into(imageview)
 
-×Ü½á£º´íÎó¼ì²é
+        },
+        Response.ErrorListener { Toast.makeText(this,"Something went wrong",Toast.LENGTH_LONG).show() })
 
-µÚÈýÕÂ ÍøÂç·þÎñÆ÷
-1¡¢½¨Á¢·þÎñ¶Ë£¨·ÖËÄ²½£©
-2¡¢·þÎñ¶Ë´íÎóÕûÀí
-3¡¢udpÓ¦´ð·þÎñÆ÷
-4¡¢Ê¹ÓÃinetdºÍxinetd
-5¡¢inet´íÎóÏà¹Ø£¨syslog£©
+// Add the request to the RequestQueue.
+queue.add(stringRequest)
 
-×Ü½á£ºÊìÏ¤inetd£¬tcpºÍudpÔÚ·þÎñ¶Ë±ä³ÉµÄÇø±ð
 
-µÚËÄÕÂ ÓòÃûÏµÍ³
-1¡¢·´Ïò²éÑ¯ÓòÃû
-2¡¢·´²éÊý¾ÝÕæÊµÐÔ¼ì²é£¨ÏÈ·´ÏòÔÙÕýÏò£©
-3¡¢²éÑ¯»·¾³
-4¡¢Ê¹ÓÃPyDNS¸ß¼¶²éÑ¯
 
-×Ü½á£ºÊ¹ÓÃsocketµÄDNSÏµÍ³½Ó¿Ú£¬Ò²¿ÉÒÔÊ¹ÓÃµÚÈý·½Ä£¿éPyDNS
 
-µÚÎåÕÂ ¸ß¼¶ÍøÂç²Ù×÷
-1¡¢°ë¿ª·Åsocket£¬Í¨¹ýsocket.shutdownÀ´µ÷ÓÃ
-2¡¢ÉèÖÃ³¬Ê±Ê±¼ä
-3¡¢´«Êä×Ö·û´®£¨ÍøÂç×Ö½ÚË³Ðò£©
-4¡¢Ê¹ÓÃ¹ã²¥Êý¾Ý£¨¶àÊýÓÃudp£©
-5¡¢Ê¹ÓÃpoll£¨£©ºÍselect£¨£©
 
-×Ü½á£ºÊ¹ÓÃ°ë¿ª¿Ú¼ì²é´íÎó£¬Ñ§»áÊ¹ÓÃselect£¨£©
 
-µÚ¶þ²¿·Ö Web Service
 
-µÚÁùÕÂ Web¿Í»§¶Ë·ÃÎÊ
-1¡¢¼òµ¥urllib2³ÌÐò
-2¡¢°üº¬ÈÏÖ¤µÄurllib2³ÌÐò
-3¡¢ÖØÐÂ¹¹ÔìgetÇëÇó
-4¡¢ÖØÐÂ¹¹ÔìpostÇëÇó£¨URLÓÀÔ¶²»±ä£©
-5¡¢url³ÌÐòµÄ´íÎóÀàÐÍ
-6¡¢¼ì²éÊý¾Ý´íÎó£¨ÊÇ·ñ±»É¾½Ú£©
 
-×Ü½á£ºÖØ¹¹get¡¢post·½·¨£¬×¢Òâ´íÎó±íÏÖ
 
-µÚÆßÕÂ ½âÎöHTMLºÍXHTML
-1¡¢»ù±¾html½âÎö£¨³éÈ¡head£©
-2¡¢×¢ÒâÊµÌåÎÊÌâ&
 
-×Ü½á£º´¦Àí¸÷ÖÖÀàÐÍµÄhtml
 
-µÚ°ËÕÂ XMLºÍXML-RPC
-1¡¢SGMLÓïÑÔ²úÉúXML£¬python-SAXÄ£¿éÊµÏÖ»ùÓÚÊÂ¼þµÄ½âÎö£¬python-DOMÄ£¿éÊµÏÖ»ùÓÚÊ÷µÄ½âÎö
-2¡¢Ê¹ÓÃdom½øÐÐÍêÈ«½âÎö
-3¡¢Ê¹ÓÃXML-RPC
+android.permission.INTERNET
 
-×Ü½á£º½âÎöXMLÎÄµµ£¬²úÉúDOMÊ÷£¬ÀûÓÃXML-RPC
+
+
+
+Or use Gradle:
+
+repositories {
+  google()
+  jcenter()
+}
+
+dependencies {
+  implementation 'com.github.bumptech.glide:glide:4.11.0'
+  annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+}
+
+
+
+
+
+Glide.with(this).load(url).into(imageview)
+
+
+
+
+æ€»ç»“ï¼šé”™è¯¯æ£€æŸ¥
+
+ç¬¬ä¸‰ç«  ç½‘ç»œæœåŠ¡å™¨
+1ã€å»ºç«‹æœåŠ¡ç«¯ï¼ˆåˆ†å››æ­¥ï¼‰
+2ã€æœåŠ¡ç«¯é”™è¯¯æ•´ç†
+3ã€udpåº”ç­”æœåŠ¡å™¨
+4ã€ä½¿ç”¨inetdå’Œxinetd
+5ã€ineté”™è¯¯ç›¸å…³ï¼ˆsyslogï¼‰
+
+æ€»ç»“ï¼šç†Ÿæ‚‰inetdï¼Œtcpå’Œudpåœ¨æœåŠ¡ç«¯å˜æˆçš„åŒºåˆ«
+
+ç¬¬å››ç«  åŸŸåç³»ç»Ÿ
+1ã€åå‘æŸ¥è¯¢åŸŸå
+2ã€åæŸ¥æ•°æ®çœŸå®žæ€§æ£€æŸ¥ï¼ˆå…ˆåå‘å†æ­£å‘ï¼‰
+3ã€æŸ¥è¯¢çŽ¯å¢ƒ
+4ã€ä½¿ç”¨PyDNSé«˜çº§æŸ¥è¯¢
+
+æ€»ç»“ï¼šä½¿ç”¨socketçš„DNSç³»ç»ŸæŽ¥å£ï¼Œä¹Ÿå¯ä»¥ä½¿ç”¨ç¬¬ä¸‰æ–¹æ¨¡å—PyDNS
+
+ç¬¬äº”ç«  é«˜çº§ç½‘ç»œæ“ä½œ
+1ã€åŠå¼€æ”¾socketï¼Œé€šè¿‡socket.shutdownæ¥è°ƒç”¨
+2ã€è®¾ç½®è¶…æ—¶æ—¶é—´
+3ã€ä¼ è¾“å­—ç¬¦ä¸²ï¼ˆç½‘ç»œå­—èŠ‚é¡ºåºï¼‰
+4ã€ä½¿ç”¨å¹¿æ’­æ•°æ®ï¼ˆå¤šæ•°ç”¨udpï¼‰
+5ã€ä½¿ç”¨pollï¼ˆï¼‰å’Œselectï¼ˆï¼‰
+
+æ€»ç»“ï¼šä½¿ç”¨åŠå¼€å£æ£€æŸ¥é”™è¯¯ï¼Œå­¦ä¼šä½¿ç”¨selectï¼ˆï¼‰
+
+ç¬¬äºŒéƒ¨åˆ† Web Service
+
+ç¬¬å…­ç«  Webå®¢æˆ·ç«¯è®¿é—®
+1ã€ç®€å•urllib2ç¨‹åº
+2ã€åŒ…å«è®¤è¯çš„urllib2ç¨‹åº
+3ã€é‡æ–°æž„é€ getè¯·æ±‚
+4ã€é‡æ–°æž„é€ postè¯·æ±‚ï¼ˆURLæ°¸è¿œä¸å˜ï¼‰
+5ã€urlç¨‹åºçš„é”™è¯¯ç±»åž‹
+6ã€æ£€æŸ¥æ•°æ®é”™è¯¯ï¼ˆæ˜¯å¦è¢«åˆ èŠ‚ï¼‰
+
+æ€»ç»“ï¼šé‡æž„getã€postæ–¹æ³•ï¼Œæ³¨æ„é”™è¯¯è¡¨çŽ°
+
+ç¬¬ä¸ƒç«  è§£æžHTMLå’ŒXHTML
+1ã€åŸºæœ¬htmlè§£æžï¼ˆæŠ½å–headï¼‰
+2ã€æ³¨æ„å®žä½“é—®é¢˜&
+
+æ€»ç»“ï¼šå¤„ç†å„ç§ç±»åž‹çš„html
+
+ç¬¬å…«ç«  XMLå’ŒXML-RPC
+1ã€SGMLè¯­è¨€äº§ç”ŸXMLï¼Œpython-SAXæ¨¡å—å®žçŽ°åŸºäºŽäº‹ä»¶çš„è§£æžï¼Œpython-DOMæ¨¡å—å®žçŽ°åŸºäºŽæ ‘çš„è§£æž
+2ã€ä½¿ç”¨domè¿›è¡Œå®Œå…¨è§£æž
+3ã€ä½¿ç”¨XML-RPC
+
+æ€»ç»“ï¼šè§£æžXMLæ–‡æ¡£ï¼Œäº§ç”ŸDOMæ ‘ï¼Œåˆ©ç”¨XML-RPC
 
