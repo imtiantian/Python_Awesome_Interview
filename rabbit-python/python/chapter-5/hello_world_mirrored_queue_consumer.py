@@ -44,7 +44,7 @@ def msg_consumer(channel, method, header, body): #/(hwcmq.7) Make function to pr
     else:
         print body
     
-    return
+    return  None
 
 
 
